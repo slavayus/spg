@@ -13,8 +13,12 @@ class Spg {
         val phrase = readLine()!!
 
         stateMachine.phrase = phrase
-        while (stateMachine.phrase!="#") {
+        while (true) {
             stateMachine.doWork()
         }
+    }
+
+    companion object {
+        const val MARKER = '#'
     }
 }

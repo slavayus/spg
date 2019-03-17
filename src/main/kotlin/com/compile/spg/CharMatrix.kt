@@ -1,5 +1,6 @@
 package com.compile.spg
 
+import com.compile.spg.Spg.Companion.MARKER
 import org.springframework.stereotype.Service
 
 @Service
@@ -34,7 +35,13 @@ class CharMatrix {
         array[9][9] = GREAT
     }
 
-    fun getByIndex(x: Char, y: Char) = array[indexes.indexOf(x)][indexes.indexOf(y)]
+    fun getByIndex(x: Char, y: Char): Int {
+        return when {
+            x == MARKER -> LESS
+            y == MARKER -> GREAT
+            else -> array[indexes.indexOf(x)][indexes.indexOf(y)]
+        }
+    }
 
     fun printArray() {
         array.forEach { ints ->
